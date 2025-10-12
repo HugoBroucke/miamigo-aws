@@ -70,7 +70,7 @@ services:
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=n8npass
-      - N8N_SECURE_COOKIE=false
+      - N8N_SECURE_COOKIE=true
       - QUEUE_MODE=true
       - QUEUE_REDIS_HOST=redis
       - EXECUTIONS_PROCESS=main
@@ -80,7 +80,7 @@ services:
       - N8N_FILES_ACCESS_KEY_ID=minio
       - N8N_FILES_SECRET_ACCESS_KEY=minio123
       - N8N_HOST=n8n.miamigo-bot.duckdns.org
-      - N8N_PORT=5678
+      - N8N_PORT=443
       - N8N_PROTOCOL=https
       - WEBHOOK_TUNNEL_URL=https://n8n.miamigo-bot.duckdns.org
       - GENERIC_TIMEZONE=Europe/Paris
@@ -88,7 +88,7 @@ services:
       - LETSENCRYPT_HOST=n8n.miamigo-bot.duckdns.org
       - LETSENCRYPT_EMAIL=brouckeh@gmail.com
     expose:
-      - "5678"
+      - "443"
     depends_on:
       - redis
       - postgres
