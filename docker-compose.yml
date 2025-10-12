@@ -113,7 +113,7 @@ services:
       - DB_POSTGRESDB_PASSWORD=n8npass
       - QUEUE_MODE=true
       - QUEUE_REDIS_HOST=redis
-      - EXECUTIONS_PROCESS=worker
+      - EXECUTIONS_PROCESS=main
       - N8N_FILES_HOST=http://minio:9000
       - N8N_FILES_BUCKET_NAME=n8n
       - N8N_FILES_ACCESS_KEY_ID=minio
@@ -127,15 +127,12 @@ services:
       - n8ndata:/home/node/.n8n
     networks:
       - miamigo_net
-    command: worker
 
   # === Redis ===
   redis:
     image: redis:7
     container_name: redis
     restart: always
-    volumes:
-      - redisdata:/data
     networks:
       - miamigo_net
 
@@ -167,7 +164,6 @@ services:
       - VIRTUAL_HOST=minio.miamigo-bot.duckdns.org
       - LETSENCRYPT_HOST=minio.miamigo-bot.duckdns.org
       - LETSENCRYPT_EMAIL=brouckeh@gmail.com
-      - VIRTUAL_PORT=9001
     expose:
       - "9000"
       - "9001"
@@ -181,7 +177,6 @@ volumes:
   n8ndata:
   pgdata:
   miniodata:
-  redisdata:
 
 # === Réseau partagé ===
 networks:
