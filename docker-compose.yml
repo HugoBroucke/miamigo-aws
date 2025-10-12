@@ -56,7 +56,6 @@ services:
       - minio
     volumes:
       - n8ndata:/home/node/.n8n
-      - C:/Users/Hugo/Documents:/files
     networks:
       - miamigo_net
 
@@ -88,7 +87,6 @@ services:
       - minio
     volumes:
       - n8ndata:/home/node/.n8n
-      - C:/Users/Hugo/Documents:/files
     networks:
       - miamigo_net
 
