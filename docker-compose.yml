@@ -13,7 +13,7 @@ services:
       - TRUST_DOWNSTREAM_PROXY=true
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./certs:/etc/nginx/certs:ro       # ← monté en lecture seule
+      - ./certs:/etc/nginx/certs:ro
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
     networks:
@@ -30,7 +30,7 @@ services:
       - nginx-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./certs:/etc/nginx/certs:rw      # ← monté en lecture/écriture
+      - ./certs:/etc/nginx/certs:rw
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
     networks:
