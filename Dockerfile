@@ -11,12 +11,11 @@ COPY requirements.txt /app/requirements.txt
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 COPY . /app
 
-# Expose le port HTTPS
-EXPOSE 443
+# Expose le port interne 8443
+EXPOSE 8443
 
-# Lancer Streamlit avec SSL et toutes interfaces
 CMD ["python3", "-m", "streamlit", "run", "app.py", \
-     "--server.port=443", \
+     "--server.port=8443", \
      "--server.address=0.0.0.0", \
      "--server.sslCertFile=/certs/miamigo-bot.duckdns.org.chain.pem", \
      "--server.sslKeyFile=/certs/miamigo-bot.duckdns.org.key", \
