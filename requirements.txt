@@ -4,4 +4,4 @@ boto3        # si tu veux utiliser MinIO via S3 API
 psycopg2-binary
 redis
 Authlib
-psycopg2
+
