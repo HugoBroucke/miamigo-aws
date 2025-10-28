@@ -1,0 +1,7 @@
+[auth]
+redirect_uri = "http://localhost:8501/oauth2callback"
+cookie_secret = "ziefhyerfbhsvbsybvusevsrg49458PDFLKODFV="
+[auth.google]
+client_id = "18710123753-ecahulctq8t2ijbb6tddtmnl69ajsn0q.apps.googleusercontent.com"
+client_secret = "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"
+server_metadata_url = "https://accounts.google.com/.well-known/openid-configuration"
