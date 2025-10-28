@@ -1,24 +1,23 @@
-# --- Dockerfile allégé (utilise le Python déjà présent sur Ubuntu) ---
 FROM ubuntu:22.04
 
 WORKDIR /app
-
-# Éviter les prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Installer Python + pip (3.12 est dans Ubuntu 24.04, mais ici on force 3.x récent)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends python3 python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
-# Copier requirements et installer
 COPY requirements.txt /app/requirements.txt
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
-
-# Copier ton code
 COPY . /app
 
-EXPOSE 8501
+# Expose le port HTTPS
+EXPOSE 443
 
-# Lancer Streamlit
-CMD ["python3", "-m", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Lancer Streamlit avec SSL et toutes interfaces
+CMD ["python3", "-m", "streamlit", "run", "app.py", \
+     "--server.port=443", \
+     "--server.address=0.0.0.0", \
+     "--server.sslCertFile=/certs/miamigo-bot.duckdns.org.chain.pem", \
+     "--server.sslKeyFile=/certs/miamigo-bot.duckdns.org.key", \
+     "--server.enableCORS=false"]
