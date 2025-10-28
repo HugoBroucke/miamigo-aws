@@ -52,11 +52,14 @@ services:
       - LETSENCRYPT_EMAIL=brouckeh@gmail.com
     expose:
       - "8501"
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
     depends_on:
       - postgres
       - minio
     networks:
       - miamigo_net
+
 
   # === N8N Main ===
   n8n:
