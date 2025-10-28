@@ -1,3 +1,4 @@
+# --- Dockerfile allégé (utilise le Python déjà présent sur Ubuntu) ---
 FROM ubuntu:22.04
 
 WORKDIR /app
@@ -18,7 +19,6 @@ RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 COPY . /app
 
 EXPOSE 8501
-
 
 # Lancer Streamlit
 CMD ["python3", "-m", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
