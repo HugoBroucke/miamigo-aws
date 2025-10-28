@@ -20,7 +20,7 @@ with st.sidebar:
                 user="n8n",
                 password="n8npass", #TODO
                 # password="coolraoul",
-                host="localhost",
+                host="postgres",
                 port="5432"
             )
             cur = conn.cursor()
@@ -66,7 +66,7 @@ with st.sidebar:
                     dbname="miamigo",
                     user="postgres",
                     password="coolraoul",
-                    host="localhost",
+                    host="postgres",
                     port="5432"
                 )
                 cur = conn.cursor()
@@ -147,7 +147,7 @@ with st.sidebar:
                     dbname="miamigo",
                     user="postgres",
                     password="coolraoul",
-                    host="localhost",
+                    host="postgres",
                     port="5432"
                 )
                 cur = conn.cursor()
@@ -253,8 +253,7 @@ if st.user.is_logged_in:
             with st.spinner("Attente de la réponse..."):
                 try:
                     resp = requests.post(
-                        # "http://n8n:5678/webhook/miamigo", #TODO
-                        "http://localhost:5678/webhook/miamigo",
+                        "http://n8n:5678/webhook/miamigo",
                         json={
                             "message": prompt,
                             "sessionId": st.session_state.sessionId,
