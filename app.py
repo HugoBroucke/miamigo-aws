@@ -64,8 +64,8 @@ with st.sidebar:
             try:
                 conn = psycopg2.connect(
                     dbname="miamigo",
-                    user="postgres",
-                    password="coolraoul",
+                    user="n8n",
+                    password="n8npass",
                     host="postgres",
                     port="5432"
                 )
@@ -145,8 +145,8 @@ with st.sidebar:
             try:
                 conn = psycopg2.connect(
                     dbname="miamigo",
-                    user="postgres",
-                    password="coolraoul",
+                    user="n8n",
+                    password="n8npass",
                     host="postgres",
                     port="5432"
                 )
